@@ -1,24 +1,11 @@
-# README
+# Marvel Comics Browser
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hello! 👋
 
-Things you may want to cover:
+This is a merely rails project intended to display Marvel comic books, where the
+user is able to filter comics by characters and to bookmark his/her favorite
+ones.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The purpose here is to be a very simple project, so there is no user managment,
+which means no user registration nor user sign-in. The user data is saved in
+session storage (or modern HTML5 API LocalStorage).
