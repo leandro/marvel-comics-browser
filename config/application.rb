@@ -13,5 +13,6 @@ module MarvelComicsBrowser
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.redis = config_for(:redis)
   end
 end

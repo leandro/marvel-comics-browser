@@ -1,0 +1,10 @@
+default: &default_redis
+  connect_timeout: 30
+  read_timeout: 0.2
+  write_timeout: 0.2
+  reconnect_attempts: 1
+
+development:
+  db:
+    url: 'redis://127.0.0.1:6556/0'
+    <<: *default_redis
