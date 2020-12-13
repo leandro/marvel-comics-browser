@@ -1,0 +1,12 @@
+doctype html
+html lang="en"
+  head
+    title Marvel Comics Browser
+    meta name="viewport" content="width=device-width, initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application'
+
+  body
+    = yield
+    = javascript_pack_tag 'application'
