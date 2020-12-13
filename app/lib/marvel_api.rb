@@ -50,6 +50,16 @@ class MarvelApi
     end
   end
 
+  def full_url(path, params)
+    url_components = {
+      base: BASE_URL,
+      path: path,
+      query_string: query_string(params)
+    }
+
+    '%{base}%{path}?%{query_string}' % url_components
+  end
+
   def hashable_data
     "#{request_id}#{PRIVATE_KEY}#{PUBLIC_KEY}"
   end
@@ -60,16 +70,6 @@ class MarvelApi
 
   def perform_request(path, params = {})
     HTTParty.get(full_url(path, params))
-  end
-
-  def full_url(path, params)
-    url_components = {
-      base: BASE_URL,
-      path: path,
-      query_string: query_string(params)
-    }
-
-    '%{base}%{path}?%{query_string}' % url_components
   end
 
   def query_string(params)
