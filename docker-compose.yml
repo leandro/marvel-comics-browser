@@ -1,0 +1,16 @@
+version: '3.3'
+services:
+  redis-db:
+    image: redis:6.0.9-alpine
+    volumes:
+      - redis-db:/data
+      - ./config/redis/main-db-dev.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - '6556:6556'
+    command:
+      - redis-server
+      - /usr/local/etc/redis/redis.conf
+    restart: unless-stopped
+
+volumes:
+  redis-db:
