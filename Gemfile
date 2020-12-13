@@ -3,9 +3,11 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'hiredis', '0.6.3'
 gem 'httparty', '0.18.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
+gem 'redis', '4.2.5'
 gem 'webpacker', '~> 5.0'
 
 group :development, :test do
