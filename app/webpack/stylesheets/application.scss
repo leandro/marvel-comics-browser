@@ -1,10 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap');
+
 body, p, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
 }
 
 body {
+  font-size: 16px;
+
   * {
     box-sizing: border-box;
+  }
+}
+
+header {
+  align-items: center;
+  background: #fb0016;
+  display: flex;
+  height: 5rem;
+
+  .logo {
+    background-image: url(../images/marvel-logo.png);
+    height: 50px;
+    margin-left: 1rem;
+    width: 113px;
+  }
+
+  .title {
+    border-left: 2px solid #fff;
+    color: rgba(255, 255, 255, 1);
+    font: 200 1.5rem/2.25rem 'Nunito', sans-serif;
+    margin-left: 0.5rem;
+    padding: 3px 0 0 0.75rem;
+    text-transform: uppercase;
   }
 }
