@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400&display=swap');
 
-body, p, h1, h2, h3, h4, h5, h6 {
+body, p, h1, h2, h3, h4, h5, h6, ul, li {
   margin: 0;
   padding: 0;
+}
+
+ul, li {
+  list-style: none;
 }
 
 body {
@@ -68,7 +72,7 @@ header {
         text-transform: lowercase;
 
         &::placeholder {
-          color: rgba(153, 0, 22, 0.5);
+          color: rgba(0, 0, 0, 0.35);
         }
 
         &:focus {
@@ -97,6 +101,43 @@ header {
         text-indent: -1000px;
         width: 2.25rem;
         top: 1px;
+      }
+    }
+  }
+}
+
+.comics-listing {
+  padding: 3rem;
+
+  .title {
+    border-bottom: 4px solid #fb0016;
+    font-size: 1.75rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+.comics {
+  display: grid;
+  grid-auto-rows: 225px;
+  grid-template-columns: repeat(auto-fill, 150px);
+  justify-content: space-between;
+  row-gap: 1rem;
+
+  li {
+    position: relative;
+
+    &:hover {
+      &:after {
+        border: 4px solid #fb0016;
+        bottom: 0;
+        content: "";
+        left: 0;
+        pointer-events: none;
+        position: absolute;
+        right: 0;
+        top: 0;
       }
     }
   }
