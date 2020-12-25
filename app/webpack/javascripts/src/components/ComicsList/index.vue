@@ -31,7 +31,7 @@ const computed = {
       times(10, (i) => (
         {
           id: i,
-          url: 'http://i.annihil.us/u/prod/marvel/i/mg/f/50/5fdb794a3be0d/portrait_xlarge.jpg',
+          url: 'http://i.annihil.us/u/prod/marvel/i/mg/f/50/5fdb794a3be0d/portrait_fantastic.jpg',
           description: 'This is just a test, right?'
         }
       ))
