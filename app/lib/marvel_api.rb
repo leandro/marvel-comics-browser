@@ -6,7 +6,7 @@ class MarvelApi
   }
 
   BASE_URL = 'https://gateway.marvel.com'
-  PAGE_SIZE = 20
+  PAGE_SIZE = Pagination::PAGE_SIZE
   PRIVATE_KEY = Rails.application.credentials.marvel_api[:private_key]
 
   PARAMS_MAP = {
