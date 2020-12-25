@@ -5,6 +5,7 @@ ruby '2.7.2'
 
 gem 'dry-struct', '1.3.0'
 gem 'hiredis', '0.6.3'
+gem 'jsonapi-serializer', '2.1.0'
 gem 'httparty', '0.18.1'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
