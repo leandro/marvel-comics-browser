@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'dry-struct', '1.3.0'
 gem 'hiredis', '0.6.3'
 gem 'httparty', '0.18.1'
 gem 'puma', '~> 5.0'
