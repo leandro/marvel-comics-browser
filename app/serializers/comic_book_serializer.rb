@@ -7,7 +7,7 @@ class ComicBookSerializer
 
   attributes :title
 
-  attribute :image do |object|
+  attribute :image, if: -> (object) { object.image.present? } do |object|
     url_base, extension = [object.image.path, object.image.extension]
 
     "#{url_base}/#{IMAGE_TYPE}.#{extension}"
