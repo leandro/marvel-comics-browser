@@ -1,7 +1,10 @@
 <template lang="pug">
 section.comics-listing
   h2.title {{title}}
-  ul.comics
+  .loading-box(v-if='loading')
+    .loading-box__animation
+    .loading-box__label loading
+  ul.comics(v-else)
     comic-card(
       v-for='comic in comics'
       :key='comic.id'
@@ -23,7 +26,9 @@ const props = {
 };
 
 const data = function () {
-  return {};
+  return {
+    loading: true
+  };
 };
 
 const computed = {
