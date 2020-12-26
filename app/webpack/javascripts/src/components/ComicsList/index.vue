@@ -12,6 +12,7 @@ section.comics-listing
 
 <script>
 import { times } from 'lodash';
+import ajax from 'nanoajax';
 import ComicCard from '../ComicCard/';
 
 const props = {
