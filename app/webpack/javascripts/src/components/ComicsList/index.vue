@@ -8,17 +8,21 @@ section.comics-listing
     comic-card(
       v-for='comic in comics'
       :key='comic.id'
-      :image-url='comic.url'
-      :description='comic.description'
+      :image-url='comic.image'
+      :description='comic.title'
     )
 </template>
 
 <script>
 import { times } from 'lodash';
-import ajax from 'nanoajax';
+import { ajax } from 'nanoajax';
 import ComicCard from '../ComicCard/';
 
 const props = {
+  comicsPath: {
+    type: String,
+    required: true
+  },
   title: {
     type: String,
     required: true
@@ -27,25 +31,41 @@ const props = {
 
 const data = function () {
   return {
-    loading: true
+    loading: true,
+    comics: []
   };
 };
 
 const computed = {
-  comics () {
-    return (
-      times(10, (i) => (
-        {
-          id: i,
-          url: 'http://i.annihil.us/u/prod/marvel/i/mg/f/50/5fdb794a3be0d/portrait_fantastic.jpg',
-          description: 'This is just a test, right?'
-        }
-      ))
-    );
-  }
+};
+
+const mounted = function () {
+  this.loadComics();
+};
+
+const updateComics = function (vue, { data: comics, links: paginationData }) {
+  const comicsData = comics.map(({ id, attributes: { title, image } }) => (
+    { id, title, image: image || '' }
+  ));
+
+  Object.assign(vue.$data, { comics: comicsData, loading: false });
 };
 
 const methods = {
+  loadComics () {
+    const $self = this;
+    const headers = { 'Accept': 'application/json' };
+
+    ajax({url: this.comicsPath}, function (code, rawData) {
+      const payload = JSON.parse(rawData);
+
+      if (payload.data) {
+        updateComics($self, payload);
+      } else {
+        displayError($self, payload);
+      }
+    });
+  }
 };
 
 export default {
@@ -56,6 +76,7 @@ export default {
   props,
   data,
   computed,
+  mounted,
   methods
 }
 </script>

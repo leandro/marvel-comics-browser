@@ -1,7 +1,7 @@
 <template lang="pug">
 main
   app-header
-  comics-list(:title='listTitle')
+  comics-list(:title='listTitle' :comics-path='comicsPath')
 </template>
 
 <script>
@@ -9,6 +9,10 @@ import AppHeader from '../AppHeader/';
 import ComicsList from '../ComicsList/';
 
 const props = {
+  comicsPath: {
+    type: String,
+    required: true
+  },
   listTitle: {
     type: String,
     required: true

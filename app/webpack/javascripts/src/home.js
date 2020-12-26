@@ -8,11 +8,14 @@ import App from './components/App/';
 
     if (!comicsWrapper) return;
 
-    const listTitle = comicsWrapper.dataset.comicsTitle;
+    const {
+      comicsPath,
+      comicsTitle: listTitle
+    } = Object.assign({}, comicsWrapper.dataset);
 
     new Vue({
       el: '#content',
-      render: h => h(App, { props: { listTitle } })
+      render: h => h(App, { props: { comicsPath, listTitle } })
     });
   });
 }();
