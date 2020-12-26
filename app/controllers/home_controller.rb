@@ -11,6 +11,8 @@ class HomeController < ApplicationController
       .serializable_hash
       .to_json
 
-    render json: json_data
+    respond_to do |format|
+      format.json { render json: json_data }
+    end
   end
 end
