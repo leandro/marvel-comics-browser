@@ -1,5 +1,6 @@
 import Vue from 'vue';
 
+import AppHeader from './components/AppHeader/';
 import ComicsList from './components/ComicsList/';
 
 !function () {
@@ -12,9 +13,10 @@ import ComicsList from './components/ComicsList/';
 
     new Vue({
       el: '#content',
-      render: h => h(ComicsList, {
-        props: { title: listTitle }
-      })
+      render: h => h('main', {}, [
+        h(AppHeader, {}),
+        h(ComicsList, { props: { title: listTitle } })
+      ])
     });
   });
 }();
