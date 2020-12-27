@@ -4,12 +4,17 @@ section.comics-listing
   .loading-box(v-if='loading')
     .loading-box__animation
     .loading-box__label loading
-  ul.comics(v-else)
-    comic-card(
-      v-for='comic in comics'
-      :key='comic.id'
-      :image-url='comic.image'
-      :description='comic.title'
+  div(v-else)
+    ul.comics
+      comic-card(
+        v-for='comic in comics'
+        :key='comic.id'
+        :image-url='comic.image'
+        :description='comic.title'
+      )
+    comics-pagination(
+      :next-url='nextUrl'
+      :prev-url='prevUrl'
     )
 </template>
 
@@ -17,6 +22,7 @@ section.comics-listing
 import { times } from 'lodash';
 import { ajax } from 'nanoajax';
 import ComicCard from '../ComicCard/';
+import ComicsPagination from '../ComicsPagination/';
 
 const props = {
   comicsPath: {
@@ -31,12 +37,19 @@ const props = {
 
 const data = function () {
   return {
+    comics: [],
     loading: true,
-    comics: []
+    paginationLinks: {}
   };
 };
 
 const computed = {
+  nextUrl () {
+    return this.paginationLinks.next;
+  },
+  prevUrl () {
+    return this.paginationLinks.prev;
+  }
 };
 
 const mounted = function () {
@@ -48,7 +61,11 @@ const updateComics = function (vue, { data: comics, links: paginationData }) {
     { id, title, image: image || '' }
   ));
 
-  Object.assign(vue.$data, { comics: comicsData, loading: false });
+  Object.assign(vue.$data, {
+    comics: comicsData,
+    loading: false,
+    paginationLinks: paginationData
+  });
 };
 
 const methods = {
@@ -71,7 +88,8 @@ const methods = {
 export default {
   name: 'comics-list',
   components: {
-    ComicCard
+    ComicCard,
+    ComicsPagination
   },
   props,
   data,

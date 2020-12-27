@@ -140,6 +140,38 @@ header {
       margin-top: -1.25rem;
     }
   }
+
+  .pagination {
+    align-items: center;
+    background: #fb0016;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+    padding: 1rem;
+
+    &__nav {
+      color: rgba(255, 255, 255, 0.9);
+      cursor: pointer;
+      font-size: 1.25rem;
+      line-height: 1.25rem;
+      text-transform: uppercase;
+
+      &:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      &--disabled {
+        color: rgba(255, 255, 255, 0.5);
+        cursor: default;
+
+        &:hover {
+          color: rgba(255, 255, 255, 0.5);
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
 
 .comics {
