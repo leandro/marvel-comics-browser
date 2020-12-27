@@ -186,13 +186,13 @@ header {
   }
 
   &__description {
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: #fff;
     bottom: 0;
     display: none;
     font: 0.875rem/1rem 'Pragati Narrow', sans-serif;
-    max-height: 4rem;
+    max-height: 4.1875rem;
     overflow: hidden;
-    padding: 0.5rem 0.6875rem;
+    padding: 0.5rem 0.6875rem 0.6875rem;
     position: absolute;
     text-transform: uppercase;
     width: 100%;
