@@ -145,7 +145,7 @@ header {
   justify-content: space-between;
   row-gap: 1rem;
 
-  li {
+  li.comics__item {
     position: relative;
 
     &:hover {
@@ -162,6 +162,25 @@ header {
 
       .comics__description {
         display: block;
+      }
+    }
+
+    &.comics__item--missing-cover {
+      background-color: #000;
+
+      span.comics__alert {
+        background: url(../images/marvel-logo.png) no-repeat 50% 0/113px 50px;
+        color: #fff;
+        display: block;
+        font-size: 0.875rem;
+        left: 0;
+        opacity: 0.6;
+        padding-top: 52px;
+        position: absolute;
+        right: 0;
+        text-align: center;
+        text-transform: uppercase;
+        top: 37.5%;
       }
     }
   }
