@@ -101,6 +101,10 @@ header {
         text-indent: -1000px;
         width: 2.25rem;
         top: 1px;
+
+        &:hover {
+          background-color: #000;
+        }
       }
     }
   }
