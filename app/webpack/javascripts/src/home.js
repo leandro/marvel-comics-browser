@@ -9,13 +9,13 @@ import App from './components/App/';
     if (!comicsWrapper) return;
 
     const {
-      comicsPath,
+      defaultComicsUrl,
       comicsTitle: listTitle
     } = Object.assign({}, comicsWrapper.dataset);
 
     new Vue({
       el: '#content',
-      render: h => h(App, { props: { comicsPath, listTitle } })
+      render: h => h(App, { props: { defaultComicsUrl, listTitle } })
     });
   });
 }();

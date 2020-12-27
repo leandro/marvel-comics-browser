@@ -15,6 +15,7 @@ section.comics-listing
     comics-pagination(
       :next-url='nextUrl'
       :prev-url='prevUrl'
+      @change-page='$emit("change-page", $event)'
     )
 </template>
 
@@ -25,7 +26,7 @@ import ComicCard from '../ComicCard/';
 import ComicsPagination from '../ComicsPagination/';
 
 const props = {
-  comicsPath: {
+  comicsUrl: {
     type: String,
     required: true
   },
@@ -52,6 +53,12 @@ const computed = {
   }
 };
 
+const watch = {
+  comicsUrl: function (newValue) {
+    this.loadComics();
+  }
+};
+
 const mounted = function () {
   this.loadComics();
 };
@@ -61,11 +68,15 @@ const updateComics = function (vue, { data: comics, links: paginationData }) {
     { id, title, image: image || '' }
   ));
 
-  Object.assign(vue.$data, {
+  updateState(vue, {
     comics: comicsData,
     loading: false,
     paginationLinks: paginationData
   });
+};
+
+const updateState = function (vue, state) {
+  Object.assign(vue.$data, state);
 };
 
 const methods = {
@@ -73,7 +84,9 @@ const methods = {
     const $self = this;
     const headers = { 'Accept': 'application/json' };
 
-    ajax({url: this.comicsPath}, function (code, rawData) {
+    updateState(this, { comics: [], loading: true });
+
+    ajax({url: this.comicsUrl}, function (code, rawData) {
       const payload = JSON.parse(rawData);
 
       if (payload.data) {
@@ -94,6 +107,7 @@ export default {
   props,
   data,
   computed,
+  watch,
   mounted,
   methods
 }

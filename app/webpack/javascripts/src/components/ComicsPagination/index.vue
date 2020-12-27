@@ -2,9 +2,11 @@
 .pagination
   .pagination__nav(
     :class='{ "pagination__nav--disabled": !prevUrl }'
+    @click='goToPage(prevUrl)'
   ) Previous page
   .pagination__nav(
     :class='{ "pagination__nav--disabled": !nextUrl }'
+    @click='goToPage(nextUrl)'
   ) Next page
 </template>
 
@@ -22,6 +24,11 @@ const computed = {
 };
 
 const methods = {
+  goToPage (url) {
+    if (!url) return;
+
+    this.$emit('change-page', url);
+  }
 };
 
 export default {

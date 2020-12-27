@@ -10,7 +10,7 @@ module ComicBooks
     private
 
     def page
-      context.page || 1
+      (context.page || 1).to_i
     end
 
     def request_url

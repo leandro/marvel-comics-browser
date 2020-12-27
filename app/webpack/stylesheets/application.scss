@@ -184,16 +184,20 @@ header {
   li.comics__item {
     position: relative;
 
+    &:after {
+      border: 1px solid #000;
+      bottom: 0;
+      content: "";
+      left: 0;
+      pointer-events: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
     &:hover {
       &:after {
         border: 5px solid #fb0016;
-        bottom: 0;
-        content: "";
-        left: 0;
-        pointer-events: none;
-        position: absolute;
-        right: 0;
-        top: 0;
       }
 
       .comics__description {
