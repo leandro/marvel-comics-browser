@@ -43,7 +43,7 @@ module ComicBooks
     end
 
     def comics_from_api
-      @comics_from_api ||= MarvelApi.new.comics(page: page)
+      @comics_from_api ||= MarvelApi::Request.new(page).comics
     end
   end
 end
