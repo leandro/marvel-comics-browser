@@ -35,15 +35,15 @@ module ComicBooks
     end
 
     def total_entries
-      comics_from_api.dig('data', 'total')
+      comics_api_response.entries_total
     end
 
     def comics
-      comics_from_api.dig('data', 'results')
+      comics_api_response.entries
     end
 
-    def comics_from_api
-      @comics_from_api ||= MarvelApi::Request.new(page).comics
+    def comics_api_response
+      @comics_api_response ||= MarvelApi::Request.new(page).comics
     end
   end
 end
