@@ -26,6 +26,7 @@ import ComicCard from '../ComicCard/';
 import ComicsPagination from '../ComicsPagination/';
 
 const props = {
+  character: String,
   comicsUrl: {
     type: String,
     required: true
@@ -54,6 +55,8 @@ const computed = {
 };
 
 const watch = {
+  character: function (newValue) {
+  },
   comicsUrl: function (newValue) {
     this.loadComics();
   }

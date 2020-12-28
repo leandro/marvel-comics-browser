@@ -1,9 +1,10 @@
 <template lang="pug">
 main
-  app-header
+  app-header(@search='character = $event')
   comics-list(
     :title='listTitle'
     :comics-url='comicsUrl'
+    :character='character'
     @change-page='currentComicsUrl = $event'
   )
 </template>
@@ -25,6 +26,7 @@ const props = {
 
 const data = function () {
   return {
+    character: '',
     currentComicsUrl: ''
   };
 };

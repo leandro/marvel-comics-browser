@@ -4,29 +4,35 @@ header
   h1.title comics catalog
   .search-box
     .input-group
-      input(type="text" placeholder="search by character")
-      button(title="search") Search
+      input(
+        type='text'
+        v-model.lazy='character'
+        placeholder='search by character'
+      )
+      button(
+        title='search'
+        @click='search'
+      ) Search
 </template>
 
 <script>
-const props = {
-};
-
 const data = function () {
-  return {};
-};
-
-const computed = {
+  return {
+    character: ''
+  };
 };
 
 const methods = {
+  search () {
+    const query = this.character.trim();
+
+    this.$emit('search', query);
+  }
 };
 
 export default {
   name: 'app-header',
-  props,
   data,
-  computed,
   methods
 }
 </script>
