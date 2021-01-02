@@ -37,7 +37,7 @@ module MarvelApi
 
       perform_request(
         url_for(:character_comics, character_id: character_id),
-        pagination_params
+        pagination_params.merge(orderBy: '-focDate')
       )
     end
 
