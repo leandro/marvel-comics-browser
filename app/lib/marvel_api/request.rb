@@ -21,9 +21,7 @@ module MarvelApi
     end
 
     def characters(character_name)
-      params = { name: character_name }
-
-      perform_request(url_for(:characters), pagination_params.merge(params))
+      perform_request(url_for(:characters), name: character_name)
     end
 
     def comics(order = '-focDate')

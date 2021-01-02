@@ -13,12 +13,18 @@ module ComicBooks
       (context.page || 1).to_i
     end
 
+    def query
+      context.query.to_s.strip
+    end
+
     def request_url
+      params = { page: '%s' }.merge(query.blank? ? {} : { query: query })
+
       URI.decode(
         Rails
           .application
           .routes.url_helpers
-          .comics_path(page: '%s')
+          .comics_path(params)
       )
     end
 
@@ -43,7 +49,12 @@ module ComicBooks
     end
 
     def comics_api_response
-      @comics_api_response ||= MarvelApi::Request.new(page).comics
+      @comics_api_response ||=
+        if query.present?
+          MarvelApi::Request.new(page).comics_by_character(query)
+        else
+          MarvelApi::Request.new(page).comics
+        end
     end
   end
 end

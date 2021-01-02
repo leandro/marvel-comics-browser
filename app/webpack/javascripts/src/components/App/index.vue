@@ -1,6 +1,6 @@
 <template lang="pug">
 main
-  app-header(@search='character = $event')
+  app-header(@search='searchCharacter')
   comics-list(
     :title='listTitle'
     :comics-url='comicsUrl'
@@ -33,11 +33,17 @@ const data = function () {
 
 const computed = {
   comicsUrl () {
-    return this.currentComicsUrl || this.defaultComicsUrl
+    return (
+      this.currentComicsUrl ||
+        this.defaultComicsUrl.replace(':query', this.character)
+    );
   }
 };
 
 const methods = {
+  searchCharacter (character) {
+    Object.assign(this.$data, { currentComicsUrl: '', character: character });
+  }
 };
 
 export default {
