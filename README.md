@@ -19,3 +19,4 @@ session storage (or modern HTML5 API LocalStorage).
 - [ ] Display pagination details (total entries found and pagination info)
 - [ ] Adjust design for mobile resolutions
 - [ ] Change list title according to the current action (w/o search query)
+- [ ] Internationalize all the expressions present in the UI
