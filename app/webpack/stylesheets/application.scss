@@ -200,7 +200,7 @@ header {
         border: 5px solid #fb0016;
       }
 
-      .comics__description {
+      .comics__heart, .comics__description {
         display: block;
       }
     }
@@ -222,6 +222,29 @@ header {
         text-transform: uppercase;
         top: 37.5%;
       }
+    }
+  }
+
+  &__heart {
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    height: 1.75rem;
+    position: absolute;
+    right: 0.675rem;
+    top: 0.675rem;
+    width: 1.75rem;
+
+    &:after {
+      background-color: #fff;
+      content: "";
+      display: block;
+      height: 100%;
+      mask: url(../images/icons/circle-heart.svg) no-repeat 0 0;
+    }
+
+    &:hover {
+      background-color: #f00;
     }
   }
 
