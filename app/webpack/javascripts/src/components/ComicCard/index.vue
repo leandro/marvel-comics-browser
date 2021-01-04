@@ -1,14 +1,12 @@
 <template lang="pug">
-li.comics__item(v-if='imageUrl')
+li.comics__item(:class='{ "comics__item--missing-cover": !imageUrl }')
   span.comics__heart
   img(
+    v-if='imageUrl'
     :src='imageUrl'
     :title='imageTitle'
   )
-  span.comics__description {{description}}
-li.comics__item.comics__item--missing-cover(v-else)
-  span.comics__heart
-  span.comics__alert cover missing
+  span.comics__alert(v-else) cover missing
   span.comics__description {{description}}
 </template>
 
