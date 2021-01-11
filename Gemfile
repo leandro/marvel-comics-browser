@@ -11,6 +11,7 @@ gem 'jsonapi-serializer', '2.1.0'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.0'
 gem 'redis', '4.2.5'
+gem 'redis-session-store', '0.11.3'
 gem 'slim', '4.1.0'
 gem 'webpacker', '~> 5.0'
 

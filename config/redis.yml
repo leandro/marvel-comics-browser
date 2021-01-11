@@ -3,8 +3,12 @@ default: &default_redis
   read_timeout: 0.2
   write_timeout: 0.2
   reconnect_attempts: 1
+  driver: :hiredis
 
 development:
-  db:
+  cache:
+    url: 'redis://127.0.0.1:6556/1'
+    <<: *default_redis
+  session:
     url: 'redis://127.0.0.1:6556/0'
     <<: *default_redis
