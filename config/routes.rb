@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  get 'comics(/:query)', to: 'home#comics', as: 'comics', defaults: { format: 'json' }
+  defaults format: :json do
+    resources :comics, only: %w(index)
+  end
 
   root 'home#index'
 end

@@ -35,7 +35,7 @@ const computed = {
   comicsUrl () {
     return (
       this.currentComicsUrl ||
-        this.defaultComicsUrl.replace(':query', this.character)
+        `${this.defaultComicsUrl}?query=${this.character}`
     );
   }
 };
