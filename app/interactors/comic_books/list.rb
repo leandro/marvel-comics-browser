@@ -20,7 +20,7 @@ module ComicBooks
     def request_url
       params = { page: '%s' }.merge(query.blank? ? {} : { query: query })
 
-      URI.decode(
+      CGI.unescape(
         Rails
           .application
           .routes.url_helpers
